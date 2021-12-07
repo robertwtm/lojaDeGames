@@ -42,10 +42,11 @@ public class Produto {
 	private float precoProduto;
 
 	/*
-	@OneToMany(mappedBy = "categoria", cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy="produtos", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("produto")
-	*/
-	private List<Categoria> categoria;
+
+	 */
+
 
 	public Long getId() {
 		return id;
@@ -87,12 +88,14 @@ public class Produto {
 		this.precoProduto = precoProduto;
 	}
 
+
+	/*
 	public List<Categoria> getCategoria() {
 		return categoria;
 	}
 
 	public void setCategoria(List<Categoria> categoria) {
 		this.categoria = categoria;
-	} 
 
-}
+	 */
+	}
