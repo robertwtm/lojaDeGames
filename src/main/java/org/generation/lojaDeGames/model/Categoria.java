@@ -9,6 +9,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 @Entity
 @Table(name = "tb_categoria")
@@ -27,10 +29,9 @@ public class Categoria {
 	@Size(min = 5, max = 255)
 	private String descricaoCategoria;
 	
-
 	@ManyToOne
 	@JsonIgnoreProperties("categoria")
-	private Produto produtos;
+	private List<Produto> produto; 
 
 	public Long getId() {
 		return id;
