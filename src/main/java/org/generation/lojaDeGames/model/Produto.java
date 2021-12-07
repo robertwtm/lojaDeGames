@@ -41,10 +41,8 @@ public class Produto {
 	@NotNull
 	private float precoProduto;
 
-	/*
 	@OneToMany(mappedBy = "categoria", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("produto")
-	*/
 	private List<Categoria> categoria;
 
 	public Long getId() {
