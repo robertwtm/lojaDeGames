@@ -1,13 +1,16 @@
 package org.generation.lojaDeGames.model;
 
-import javax.annotation.Generated;
-import javax.persistence.Column;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 
 @Entity
 @Table(name = "tb_categoria")
@@ -17,11 +20,20 @@ public class Categoria {
 	private Long id;
 
 	@NotNull
+	@NotBlank
+	@Size(min = 5, max = 25)
 	private String nomeCategoria;
 	
-
 	@NotNull
+	@NotBlank
+	@Size(min = 5, max = 255)
 	private String descricaoCategoria;
+	
+	/*
+	@ManyToOne
+	@JsonIgnoreProperties("categoria")
+	*/
+	private List<Produto> produto; 
 
 	public Long getId() {
 		return id;
@@ -45,8 +57,14 @@ public class Categoria {
 
 	public void setDescricaoCategoria(String descricaoCategoria) {
 		this.descricaoCategoria = descricaoCategoria;
-	} 
-	
-	
+	}
+
+	public List<Produto> getProduto() {
+		return produto;
+	}
+
+	public void setProduto(List<Produto> produto) {
+		this.produto = produto;
+	}
 
 }
