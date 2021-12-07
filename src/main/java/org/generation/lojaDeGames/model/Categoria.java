@@ -14,14 +14,12 @@ import javax.validation.constraints.NotNull;
 public class Categoria {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-
 	private Long id;
-	
-	@Column
+
 	@NotNull
 	private String nomeCategoria;
 	
-	@Column
+
 	@NotNull
 	private String descricaoCategoria;
 
