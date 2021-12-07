@@ -2,9 +2,7 @@ package org.generation.lojaDeGames.controler;
 
 import java.util.List;
 
-import org.generation.lojaDeGames.model.Categoria;
 import org.generation.lojaDeGames.model.Produto;
-import org.generation.lojaDeGames.repository.CategoriaRepository;
 import org.generation.lojaDeGames.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -42,9 +40,9 @@ public class ProdutoController {
 	}
 
 	
-	@GetMapping("/nome/{nome}")
-	public ResponseEntity<List<Produto>> findByDescricaoProduto(@PathVariable String nome){
-		return ResponseEntity.ok(repository.findAllByNomeProdutoContainingIgnoreCase(nome));
+	@GetMapping("/nome/{nomeProduto}")
+	public ResponseEntity<List<Produto>> findByDescricaoProduto(@PathVariable String nomeProduto){
+		return ResponseEntity.ok(repository.findAllByNomeProdutoContainingIgnoreCase(nomeProduto));
 	}
 
 	@PostMapping()
@@ -58,7 +56,7 @@ public class ProdutoController {
 	}
 
 	@DeleteMapping("{id}")
-	public void deletePostagem(@PathVariable Long id){
+	public void deleteProduto(@PathVariable Long id){
 		repository.deleteById(id);
 	}
 }

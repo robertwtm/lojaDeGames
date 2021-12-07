@@ -1,13 +1,10 @@
 package org.generation.lojaDeGames.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -31,7 +28,6 @@ public class Categoria {
 	@NotBlank
 	@Size(min = 5, max = 255)
 	private String descricaoCategoria;
-	
 	
 	@ManyToOne
 	@JsonIgnoreProperties("categoria")
@@ -61,6 +57,8 @@ public class Categoria {
 		this.descricaoCategoria = descricaoCategoria;
 	}
 
+
+	/*
 	public List<Produto> getProduto() {
 		return produto;
 	}
@@ -68,5 +66,10 @@ public class Categoria {
 	public void setProduto(List<Produto> produto) {
 		this.produto = produto;
 	}
+
+	 */
+
+
+
 
 }
