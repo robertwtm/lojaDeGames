@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
@@ -41,13 +42,10 @@ public class Produto {
 	@NotNull
 	private float precoProduto;
 
-	/*
-	 * @OneToMany(mappedBy="produtos", cascade = CascadeType.REMOVE)
-	 * 
-	 * @JsonIgnoreProperties("produto")
-	 * 
-	 */
-
+	@ManyToOne
+	@JsonIgnoreProperties({"produtos", "descricaoCategoria"})
+	private Categoria categoria;
+	
 	public Long getId() {
 		return id;
 	}
@@ -88,11 +86,11 @@ public class Produto {
 		this.precoProduto = precoProduto;
 	}
 
-	/*
-	 * public List<Categoria> getCategoria() { return categoria; }
-	 * 
-	 * public void setCategoria(List<Categoria> categoria) { this.categoria =
-	 * categoria;
-	 * 
-	 */
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
 }

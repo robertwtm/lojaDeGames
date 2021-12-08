@@ -31,7 +31,7 @@ public class ProdutoController {
 				.orElse(ResponseEntity.notFound().build());
 	}
 
-	@GetMapping()
+	@GetMapping
 	public ResponseEntity<List<Produto>> findAllProduto() {
 		return ResponseEntity.ok(repository.findAll());
 	}
@@ -41,7 +41,7 @@ public class ProdutoController {
 		return ResponseEntity.ok(repository.findAllByNomeProdutoContainingIgnoreCase(nomeProduto));
 	}
 
-	@PostMapping()
+	@PostMapping
 	public ResponseEntity<Produto> postProduto(@RequestBody Produto produto) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(produto));
 	}
