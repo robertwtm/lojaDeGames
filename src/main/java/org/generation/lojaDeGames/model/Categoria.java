@@ -28,9 +28,9 @@ public class Categoria {
 	@Size(min = 5, max = 255)
 	private String descricaoCategoria;
 
-	@ManyToOne
+	@OneToMany(mappedBy = "categoria", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("categoria")
-	private List<Produto> produto;
+	private List<Produto> produtos;
 
 	public Long getId() {
 		return id;
@@ -56,10 +56,12 @@ public class Categoria {
 		this.descricaoCategoria = descricaoCategoria;
 	}
 
-	/*
-	 * public List<Produto> getProduto() { return produto; }
-	 * 
-	 * public void setProduto(List<Produto> produto) { this.produto = produto; }
-	 * 
-	 */
+	public List<Produto> getProdutos() {
+		return produtos;
+	}
+
+	public void setProdutos(List<Produto> produtos) {
+		this.produtos = produtos;
+	}
+	 
 }
