@@ -23,7 +23,7 @@ public class ControlerCategoria {
 				.orElse(ResponseEntity.notFound().build());
 	}
 
-	@GetMapping()
+	@GetMapping
 	public ResponseEntity<List<Categoria>> findAllCategoria() {
 		return ResponseEntity.ok(repository.findAll());
 	}
@@ -43,7 +43,6 @@ public class ControlerCategoria {
 		return ResponseEntity.status(HttpStatus.OK).body(repository.save(categoria));
 	}
 
-// deletemapping
 	@DeleteMapping("{id}")
 	public void deletePostagem(@PathVariable Long id) {
 		repository.deleteById(id);
